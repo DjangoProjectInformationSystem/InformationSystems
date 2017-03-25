@@ -7,12 +7,19 @@ def index(request):
 	return render(request, 'StudentInformationSystem/index.html')
 	
 def filter(request):
-	return render(request, 'StudentInformationSystem/filter.html')
+	return render(request, 'StudentInformationSystem/thome.html')
 	
 def list(request):
+	list = []
 	if request.method == "POST":
 		name = request.POST['caa']
+		p = PersonalInfo.objects.all()
+		for i in p:
+			acd = AcedamicInfo.objects.filter(aggregate__gte= 60,studentId = i)
+			if acd:
+				list.append(i)
 	return render(request, 'StudentInformationSystem/list.html',{'list':list})
+
 	
 def SuggestionInfo(request):
 	if request.method == "POST":
