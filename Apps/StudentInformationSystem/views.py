@@ -5,8 +5,43 @@ from django.http import HttpResponse,HttpResponseRedirect
 
 def index(request):
 	return render(request, 'StudentInformationSystem/index.html')
-
-
+	
+def filter(request):
+	return render(request, 'StudentInformationSystem/filter.html')
+	
+def list(request):
+	if request.method == "POST":
+		name = request.POST['caa']
+	return render(request, 'StudentInformationSystem/list.html',{'list':list})
+	
+def SuggestionInfo(request):
+	if request.method == "POST":
+		form = SuggestionForm(request.POST)
+		if form.is_valid():
+			sug = form.save(commit=False)
+			try:
+				Student = PersonalInfo.objects.get(pk = 32)
+			except PersonalInfo.DoesNotExist:
+				raise Http404("Comment does not exist")
+			sug.studentId = Student
+			sug.facultyId = 'JP Reddy'
+			sug.save()
+			return HttpResponseRedirect('/StudentInformationSystem/success')
+	else:
+		form = SuggestionForm()
+	return render(request, 'StudentInformationSystem/TPO.html', {'form': form})
+	
+def NotificationInfo(request):
+	if request.method == "POST":
+		form = NotificationForm(request.POST)
+		if form.is_valid():
+			form.TPOId = 'JP Reddy'
+			form.save()
+			return HttpResponseRedirect('/StudentInformationSystem/success')
+	else:
+		form = NotificationForm()
+	return render(request, 'StudentInformationSystem/TPO.html', {'form': form})
+	
 def base(request):
 	if request.method == "POST":
 		form = PersonalInfoForm(request.POST)
@@ -36,7 +71,7 @@ def acedamicInfo(request):
 	else:
 		form = AcedamicInfoForm()
 	return render(request, 'StudentInformationSystem/success.html', {'form': form})
-
+	
 def additionalInfo(request):
 	if request.method == "POST":
 		form = AdditionalInfoForm(request.POST)
@@ -52,6 +87,10 @@ def additionalInfo(request):
 	else:
 		form = AdditionalInfoForm()
 	return render(request, 'StudentInformationSystem/additionalInfo.html', {'form': form})
+
+def fnotifications(request):
+	notice = Notifications.objects.all()
+	return render(request, 'StudentInformationSystem/fhome.html', {'notices':notice})
 
 def notifications(request):
 	Student = PersonalInfo.objects.get(pk = 32)
@@ -102,5 +141,4 @@ def edit(request):
 		r.coCurriculars = request.POST['cca']
 		r.hobbies = request.POST['hobbies']
 		r.save()
-		
 		return render(request, 'StudentInformationSystem/index.html')

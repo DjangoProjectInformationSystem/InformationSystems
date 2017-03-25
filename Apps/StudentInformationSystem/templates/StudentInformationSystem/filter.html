@@ -1,0 +1,16 @@
+{% extends 'StudentInformationSystem/basicUI.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<html>
+<form action = '/StudentInformationSystem/list' method = 'POST'>
+	{% csrf_token %}
+	<select name = 'caa'>
+		<option value = 'WISE'>WISE</option>
+		<option value = 'MRND'>MRND</option>
+		<option value = 'ATL'>ATL</option>
+	<select>
+	<button type="submit" class="save btn btn-default">Save</button>
+</form>
+</html>
+{% endblock %}
