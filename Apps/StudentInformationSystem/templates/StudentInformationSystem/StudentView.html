@@ -1,0 +1,30 @@
+{% extends 'StudentInformationSystem/basicUI.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<html>
+	
+<p>RollNo &nbsp;&nbsp;:<input type = 'text' value = '{{person.rollNo}}' readonly></p><br><br>
+<p>First Name &nbsp;&nbsp;:<input type = 'text' value = '{{person.first_name}}'readonly></p><br><br>
+<p>Last Name &nbsp;&nbsp;:<input type = 'text' value = '{{person.last_name}}'readonly></p><br><br>
+<p>address &nbsp;&nbsp;:<input type = 'text' value = '{{person.address}}'readonly></p><br><br>
+<p>e-mail &nbsp;&nbsp;:<input type = 'text' value = '{{person.email}}'readonly></p><br><br>
+<p>phone no &nbsp;&nbsp;:<input type = 'text' value = '{{person.phoneNo}}'readonly></p><br><br>
+
+<h3>acedamic Information</h3>
+<p>year of joining &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.yearOfJoining}}'readonly></p><br><br>
+<p>aggregate &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.aggregate}}'readonly></p><br><br>
+<p> upper secondary education Institution&nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.upperSecondaryInstitution}}'readonly></p><br><br>
+<p>upper secondary education Aggrgate &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.upperSecondaryBoard}}'readonly></p><br><br>
+<p>upper secondary education  Year&nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.upperSecondaryPercentage}}'readonly></p><br><br>
+<p>secondary education Institution &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.SecondaryInstitution}}'readonly></p><br><br>
+<p>secondary education year  &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.SecondaryBoard}}'readonly></p><br><br>
+<p> secondary education Aggregate &nbsp;&nbsp;:<input type = 'text' value = '{{acedamic.SecondaryPercentage}}'readonly></p><br><br>
+
+<h3>additional Information</h3>
+<p>Co-Acedamic Activities &nbsp;&nbsp;:<input type = 'text' value = '{{additional.coAcademicActivities}}'readonly></p><br><br>
+<p>Details &nbsp;&nbsp;:<input type = 'text' value = '{{additional.details}}'readonly></p><br><br>
+<p>Co-Curriculars &nbsp;&nbsp;:<input type = 'text' value = '{{additional.coCurriculars}}'readonly></p><br><br>
+<p>hobbies &nbsp;&nbsp;:<input type = 'text' value = '{{additional.hobbies}}'readonly></p><br><br>
+</html>
+{% endblock %}
