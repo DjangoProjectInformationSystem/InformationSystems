@@ -1,7 +1,9 @@
+{% extends 'StudentInformationSystem/basicUI.html' %}
 {% load staticfiles %}
 
+{% block content %}
 <html>
-    <head>
+<head>
         <title>INFORMATION SYSTEM</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -9,6 +11,19 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <h1>WELCOME</h1>
+        
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+					<h3>Send Notifications</h3>
+					<br><br>
+					<form method="POST" class="post-form">{% csrf_token %}
+						{{ form.as_p }}
+						<button type="submit" class="save btn btn-default">Save</button>
+					</form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
+{% endblock %}
