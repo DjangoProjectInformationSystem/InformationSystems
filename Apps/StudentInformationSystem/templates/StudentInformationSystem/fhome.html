@@ -43,23 +43,15 @@ li a:hover:not(.active) {
 <body>
 
 <ul>
-  <li><a class="active" href="/StudentInformationSystem/home">Home</a></li>
-  <li><a href="/StudentInformationSystem/StudentView">ViewProfile</a></li>
-  <li><a href="/StudentInformationSystem/EditProfile">EditProfile</a></li>
-  <li><a href="/StudentInformationSystem/resume">BuildResume</a></li>
+  <li><a class="active" href="/StudentInformationSystem/fhome">Home</a></li>
+  <li><a href="/StudentInformationSystem/faculty">Suggestion</a></li>
 </ul>
 
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">
 	<div class="container"> 
 		<h2>NOTIFICATIONS</h2>
 	  <table class="table table-hover">
-		{% for i in sugs %}
 		<tbody>
-			<tr>
-				<td>{{ i.suggestion }}</td>
-				<td>{{i.date}}</td>	
-				<td>{{i.facultyId}}</td>
-			</tr>{% endfor %}
 			{%for i in notices%}
 			<tr>
 				<td>{{i.drivedetails}}</td>
